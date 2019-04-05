@@ -1,0 +1,45 @@
+#container {
+	position: relative;
+	top: 30px;
+	font-size: 0;
+	margin:auto;
+	padding: 0;
+	border: none;
+	background-image: url("https://i.imgur.com/tXqmbyh.png");
+	background-repeat: no-repeat;
+}
+
+/*.grid {
+	margin:0;
+	padding:0;
+	border:none;
+	outline:1px solid #000;
+	display:inline-block;
+}*/
+/*body {
+	background-image: url("https://i.imgur.com/tXqmbyh.png");
+	background-repeat: repeat;
+	position: center;
+}
+*/
+}
+.row {
+	outline:1px solid blue;
+
+}
+.game-square {
+/*	outline:1px solid blue;
+*/	height: 32px;
+	width: 32px;
+	display: inline-block;
+
+}
+
+.hero {
+/*	background-color: orange;
+*/	content:url("https://ya-webdesign.com/images/link-nes-png-6.png");
+	position: relative;
+	height: 36px;
+	width: 32px;
+}
+
