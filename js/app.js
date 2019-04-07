@@ -56,6 +56,7 @@ const bat = {
 	x: 5,
 	y: 8,
 	render() {
+		// $('.bat').addClass('enemy');
 		$('.bat').removeClass('bat');
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
 
@@ -66,7 +67,7 @@ const bat2 = {
 	y: 7,
 	render() {
 		$('.bat2').removeClass('bat2');
-		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat2');
+		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
 
 	}
 }
@@ -78,6 +79,7 @@ const right = 39;
 const up = 38;
 const down = 40;
 const spacebar = 32;
+let lastDir = 0;
 
 const hero = {
 	x: 7,
@@ -85,22 +87,56 @@ const hero = {
 	render() {
 		$('.hero').removeClass('hero');
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('hero');
+		if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat')) {
+			link.health--;
+			let hurt = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav"); 
+			hurt.play();
+
+
+		}
+		if(link.health === 2){
+			$('#heart3').attr({style: "content:url(https://i.imgur.com/QDXta1k.png" })
+		}
+		if(link.health === 1){
+			$('#heart2').attr({style: "content:url(https://i.imgur.com/QDXta1k.png" })
+
+		}
+		if(link.health === 0){
+			$('#heart1').attr({style: "content:url(https://i.imgur.com/QDXta1k.png" })
+		}
+
 	},
 	move(direction) {
 		$('.game-square').attr({style: ""});
-			if(direction === "left") {
-				if(this.x > 2){
-					this.x--;
+			if(lastDir === 37) {
+				if(direction === "left") {
+					if(this.x > 2){
+						this.x--;
+					}
+				}
+				else if (lastDir !== 37) {
+      		   		$(".hero").attr({style: "content:url(https://i.imgur.com/abBuvjQ.png)" });
+      		  	} 	
+			}
+			else if(lastDir === 39) {
+				 if (direction === "right") {
+					if(this.x < 13){
+						this.x++;
+					}
+				}
+				else if (lastDir !== 39) {
+					$('.hero').attr({style: "content:url(https://i.imgur.com/kCUO9Vr.png" })
 				}
 			}
-			else if (direction === "right") {
-				if(this.x < 13){
-					this.x++;
+			else if(lastDir === 38) {
+				if (direction === "up") {
+					if(this.y < 9) {
+						this.y++;
+					}
 				}
-			}
-			else if (direction === "up") {
-				if(this.y < 9) {
-					this.y++;
+				else if(lastDir !== 38) {
+					$('.hero').attr({style: "content:url(https://i.imgur.com/csvhPRc.png" })
+	
 				}
 			}
 			else if(direction === "down") {
@@ -113,26 +149,40 @@ const hero = {
 	},
 	attack() {
 		$(".hero").height(48);
+			let snd = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword1.wav"); // buffers automatically when created
+			snd.play();
 
 		if (lastDir === 37) {
-			$('.hero').attr({style: "content:url(https://i.imgur.com/oAfffnA.png" })
+			$('.hero').attr({style: "content:url(https://i.imgur.com/ypjv49F.png" })
+      		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x-1}][y=${this.y}]`).attr({style: "content:url(https://i.imgur.com/xF5wkSs.png" });
+
 		}
 		else if(lastDir === 39) {
-			$('.hero').attr({style: "content:url(https://i.imgur.com/kCUO9Vr.png" })
+			$('.hero').attr({style: "content:url(https://i.imgur.com/yWVt0cq.png" })
+   	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).attr({style: "content:url(https://i.imgur.com/LhHh7AK.png" });
 
 		}
 		else if(lastDir === 38) {
 			$(".hero").height(48);
-			$('.hero').attr({style: "content:url(https://i.imgur.com/csvhPRc.png" })
+			$('.hero').attr({style: "content:url(https://i.imgur.com/DPKnPxz.png" })
+   	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).attr({style: "content:url(https://i.imgur.com/2qVhI0i.png" });
 
 		}
 		else if(lastDir === 40) {
 			$(".hero").height(48);
-			$('.hero').attr({style: "content:url(https://i.imgur.com/L9ytA2L.png" })
+			$('.hero').attr({style: "content:url(https://i.imgur.com/a4H8WVq.png" })
+   	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).attr({style: "content:url(https://i.imgur.com/lB21hzZ.png" });
+		
 		}
 
-	}
+	},
+
 };
+
 hero.render();
 
 
@@ -141,21 +191,21 @@ $(document).keydown(function(e) {
     case 37:
        hero.move("left")
          //left arrow key
-       		   $(".hero").attr({style: "content:url(https://i.imgur.com/abBuvjQ.png)" });
+       		   $(".hero").attr({style: "content:url(https://i.imgur.com/vnqk8jR.gif)" });
        			lastDir = 37;
         break;
 
     case 38:
         hero.move("up")
          //up arrow key
-   				$(".hero").attr({style: "content:url(https://i.imgur.com/arBUiFo.png)" });
+   				$(".hero").attr({style: "content:url(https://i.imgur.com/CAFfrTP.gif)" });
    				lastDir = 38;
         break;
 
     case 39:
         hero.move("right")
         //right arrow key
-   				$(".hero").attr({style: "content:url(https://i.imgur.com/gBEWurw.png)" });
+   				$(".hero").attr({style: "content:url(https://i.imgur.com/17AAxr3.gif)" });
        			lastDir = 39;
         break;
 
