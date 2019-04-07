@@ -1,18 +1,31 @@
+
+
 #container {
 	position: relative;
 	top: 30px;
 	font-size: 0;
 	margin-left: 50px;
+	margin-top: -30px;
 	padding: 0;
 	border: none;
-	background-image: url("https://i.imgur.com/tXqmbyh.png");
+	background-image: url("https://i.imgur.com/04n4zf7.png");
 	background-repeat: no-repeat;
 }
 body {
 	background-color: black;
 	background-image: url("https://i.imgur.com/merM8Tf.png");
-	background-position: right;
+	background-position: left;
 	background-repeat: no-repeat;
+	background-size: stretch;
+/*	box-shadow: 0 3000px rgba(255, 0, 0, 0.6) inset;
+*/
+}
+h3 {
+	display: block;
+	position: justify;
+	margin-bottom: -50px;
+	margin-left: 10px;
+	color: gold;
 }
 h2 {
 	display: inline-block;
@@ -20,9 +33,9 @@ h2 {
 }
 #Title {
 	color: gold;
-	margin-left: 20px;
+	margin-left: 35px;
 	margin-right: 20px;
-	font-size: 36px;
+	font-size: 64px;
 }
 #equipment {
 	font-size: 14px;
@@ -33,15 +46,21 @@ h2 {
 #LIFE {
 	color: red;
 	font-family: Courier;
-	float: right;
-	margin-right: 250px;
+	margin-left: 55px;
+	margin-top: 70px;
 }
 #sword {
 
 }
+.door {
+/*background-image: url("https://i.imgur.com/iB0S4XG.gif");
+*/}
 .row {
 /*	outline:1px solid blue;
 */}
+.gameboard {
+	background-repeat: no-repeat;
+}
 .game-square {
 /*	outline:1px solid blue;
 */	height: 32px;
@@ -74,11 +93,25 @@ https://i.imgur.com/rCtMDmM.png 						Heart full
 https://i.imgur.com/shGzmqx.png 						Heart half full
 https://i.imgur.com/avbzJkV.png 						Heart empty
 https://i.imgur.com/a5b5ZEn.png 						Sword Image
+
+https://i.imgur.com/GUtC5FT.png 						Room 0
+https://i.imgur.com/04n4zf7.png 						Room 1
+https://i.imgur.com/p3d1a5p.png 						Room 2
+
+
+https://66.media.tumblr.com/24fd4082b31df8b1ded26c2ae6417019/tumblr_mgdycq3WwS1r3smugo1_500.gif
+^^  Link death, fairy gif
+
+https://i.imgur.com/iB0S4XG.gif 						Link death spin gif
 http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_ItemFanfare.wav  	Chest open sound
 http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav 		Link hurt
 
 */
-
+.death {
+	content: url("https://66.media.tumblr.com/24fd4082b31df8b1ded26c2ae6417019/tumblr_mgdycq3WwS1r3smugo1_500.gif");
+	height: 200px;
+	width: 240px;
+}
 .bat {
 	content:url("https://i.imgur.com/I46bClF.gif");
 	position: relative;
