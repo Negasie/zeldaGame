@@ -8,38 +8,90 @@
 	background-image: url("https://i.imgur.com/tXqmbyh.png");
 	background-repeat: no-repeat;
 }
-
-/*.grid {
-	margin:0;
-	padding:0;
-	border:none;
-	outline:1px solid #000;
-	display:inline-block;
-}*/
-/*body {
-	background-image: url("https://i.imgur.com/tXqmbyh.png");
-	background-repeat: repeat;
-	position: center;
+body {
+	background-color: black;
 }
-*/
+h2 {
+	display: inline-block;
+	position: justify;
+}
+#Title {
+	color: gold;
+	margin-left: 20px;
+	margin-right: 20px;
+	font-size: 36px;
+}
+#equipment {
+	font-size: 14px;
+	color: white;
+	margin-left: 50px;
+	font-family: Comic Sans MS;
+}
+#LIFE {
+	color: red;
+	font-family: Courier;
+	float: right;
+	margin-right: 50px;
+}
+#sword {
+
 }
 .row {
 	outline:1px solid blue;
-
 }
 .game-square {
 /*	outline:1px solid blue;
 */	height: 32px;
 	width: 32px;
 	display: inline-block;
-
 }
-
 .hero {
 /*	background-color: orange;
 */	content:url("https://ya-webdesign.com/images/link-nes-png-6.png");
 	position: relative;
-	height: 36px;
+	min-height: 36px;
 	width: 32px;
 }
+/*https://ya-webdesign.com/images/link-nes-png-6.png   	Link facing down
+https://i.imgur.com/gBEWurw.png  						Link facing right
+https://i.imgur.com/abBuvjQ.png							Link facing left
+https://i.imgur.com/arBUiFo.png							Link facing up
+https://i.imgur.com/JEyPBc6.png 						Bat wings open
+https://i.imgur.com/sK6TOOj.png 						Bat wings closed
+blob:https://imgur.com/35553b38-11fa-4be3-afcc-2fe5497b9a2b	Bat gif
+https://i.imgur.com/oAfffnA.png 						Link atk left
+https://i.imgur.com/kCUO9Vr.png 						Link atk right
+https://i.imgur.com/csvhPRc.png 						Link atk up
+https://i.imgur.com/L9ytA2L.png 						Link atk down
+https://i.imgur.com/NfR17XP.png 						Heart full
+https://i.imgur.com/shGzmqx.png 						Heart half full
+https://i.imgur.com/avbzJkV.png 						Heart empty
+https://i.imgur.com/a5b5ZEn.png 						Sword Image
+*/
+
+.bat, .bat2 {
+	content:url("https://i.imgur.com/I46bClF.gif");
+	position: relative;
+	height: 25px;
+	width: 30px;
+}
+
+.up {
+
+}
+.down {
+
+}
+.left {
+
+}
+
+.right {
+
+}
+
+
+
+
+
 
