@@ -14,6 +14,7 @@ for(let y = 11; y > -1; y--){
  	$('.game-square[x=1][y=6]').addClass('door door0');
  //	$('.game-square[x=13][y=6]').addClass('door door1');
  	$('.game-square[x=14][y=6]').addClass('door door1');
+ 	$('.game-square[x=7][y=2]').addClass('door door3');
 
 };
 };
@@ -149,6 +150,73 @@ const hero = {
 				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
 			};
 
+		};
+		if( $('.gameboard').hasClass('room1')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/QGL6B6I.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=7][y=3]`).addClass('hero');
+					hero.x = 7;
+					hero.y =3;			// Room1 to Room3 doorway
+				$('.gameboard').removeClass('room1');
+				$('.gameboard').addClass('room3');
+ 				$('.game-square[x=14][y=6]').removeClass('door0');
+ 				$('.game-square[x=7][y=10]').removeClass('door1');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
+	
+
+			};
+		};
+		if( $('.gameboard').hasClass('room3')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door3')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/04n4zf7.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=7][y=9]`).addClass('hero');
+					hero.x = 7;
+					hero.y =9;			// Room3 to Room1 doorway
+				$('.gameboard').removeClass('room3');
+				$('.gameboard').addClass('room1');
+ 				$('.game-square[x=14][y=6]').addClass('door1');
+ 				$('.game-square[x=7][y=10]').addClass('door2');
+			 	$('.game-square[x=7][y=2]').addClass('door3');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${5}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
+			};
+
+		};
+		if( $('.gameboard').hasClass('room3')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/mhi8RzB.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=7][y=3]`).addClass('hero');
+					hero.x = 7;
+					hero.y =3;			// Room3 to Room4 doorway
+				$('.gameboard').removeClass('room3');
+				$('.gameboard').addClass('room4');
+ 				$('.game-square[x=14][y=6]').addClass('door1');
+ 				$('.game-square[x=7][y=10]').addClass('door2');
+			 	$('.game-square[x=7][y=2]').addClass('door3');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${3}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${7}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${9}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${11}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${13}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
+	
+
+			};
 		};
 		// if($('.gameboard').hasClass('room0')){
 		// 	if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
