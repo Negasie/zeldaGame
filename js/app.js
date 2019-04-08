@@ -2,7 +2,7 @@ console.log('zelda')
 
 
 function gameboard() {
-$('#container').append('<div class="gameboard"></div>');
+$('#container').append('<div class="gameboard room1"></div>');
 for(let y = 11; y > -1; y--){
     $('.gameboard').append(`<div class='row${y}'></div>`)
     for(let x = 0; x < 16; x++){
@@ -42,16 +42,26 @@ const bat = {
 		// $('.bat').addClass('enemy');
 		$('.bat').removeClass('bat');
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
+		if( $('.game-square').hasClass('door0 hero')) {
 
+		// if($('.game-square').hasClass('hero door0'){
+		// $('.bat').removeClass('bat');
+		// $(`.game-square[x=${4}][y=${4}]`).addClass('bat');
+
+		// bat.render();
+		};
 	}
 }
 const bat2 = {
 	x: 10,
-	y: 7,
+	y: 8,
 	render() {
 		$('.bat2').removeClass('bat2');
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
-
+		// if('.game-square').hasClass('hero door0'){
+		// 	bat.x =7; 
+		// 	bat.y =9;
+		// }
 	}
 }
 bat.render();
@@ -74,20 +84,32 @@ const hero = {
 			$('.gameboard').css('background-image','url(https://i.imgur.com/GUtC5FT.png)');
 			$('.hero').removeClass('hero');
 			$(`.game-square[x=14][y=6]`).addClass('hero');
+			$('.gameboard').removeClass('room1');
+			$('.gameboard').addClass('room0');
+			$('.game-square').removeClass('door0');
+
 			console.log(hero.x, hero.y);
-			// hero = hero[x=14][y=6];
-//			Game thinks Link is currently at x=1, y=6.  
-
-
-
-
-
-
-
-
-
-
+			hero.x = 14;
+			hero.y =6;
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
 		};
+		// if($('.gameboard').hasClass('room0')){
+		// 	if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
+		// //		$('.gameboard').css('background-image','url(https://i.imgur.com/04n4zf7.png)');
+		// 		$('.hero').removeClass('hero');
+		// 		hero.x = 1;
+		// 		hero.y = 6;
+		// 		$(`.game-square[x=1][y=6]`).addClass('hero');
+		// 		$('.gameboard').removeClass('room0');
+		// 		$('.gameboard').addClass('room1');
+		// 	// if( $('.gameboard').hasClass('room0')){
+		// 	// 	$('.gameboard').removeClass('door0');
+		// 	// }
+		// 	};
+		// };
+
 		if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat')) {
 			link.health--;
 			let hurt = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav"); 
@@ -289,6 +311,20 @@ $(document).keydown(function(e) {
 1.	Put each room(enemies, doors, etc) into an object.
 2.	Create function to render each room. And clear when moving on.
 3.	Plan a room/doorway structure system.
+
+Each room has up to four doors:
+	door 0 on the left wall
+	door 1 on the right wall
+	door 2 on the upper wall
+	door 3 on the lower wall
+
+Whichever door number hero steps on checks current room and loads
+the next corresponding room.  So if hero is in room1, and steps on 
+door0 (left wall), the function checks which room its currently in,
+and determines which room is adjacent to it.  and loads up accordingly.
+
+
+
 4.	Connect doorways from object to object.  Tie in coordinates,
 not just to image.
 5.	Style more and have fun.
