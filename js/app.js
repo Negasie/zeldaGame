@@ -84,16 +84,34 @@ const hero = {
 			$('.gameboard').css('background-image','url(https://i.imgur.com/GUtC5FT.png)');
 			$('.hero').removeClass('hero');
 			$(`.game-square[x=14][y=6]`).addClass('hero');
+				hero.x = 13;
+				hero.y =6;			
 			$('.gameboard').removeClass('room1');
 			$('.gameboard').addClass('room0');
 			$('.game-square').removeClass('door0');
-
-			console.log(hero.x, hero.y);
-			hero.x = 14;
-			hero.y =6;
+			$('.game-square').removeClass('door2');
+			$('.game-square').removeClass('door3');
+			$('.bat').removeClass('bat');
+			$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
+			$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+		};
+		if( $('.gameboard').hasClass('room0')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/04n4zf7.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=1][y=6]`).addClass('hero');
+					hero.x = 1;
+					hero.y =6;
+				$('.gameboard').removeClass('room0');
+				$('.gameboard').addClass('room1');
+ 				$('.game-square[x=1][y=6]').addClass('door0');
+ 				$('.game-square[x=7][y=10]').addClass('door2');
+			 	$('.game-square[x=7][y=2]').addClass('door3');
 				$('.bat').removeClass('bat');
-				$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
-				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
+			};
+
 		};
 		// if($('.gameboard').hasClass('room0')){
 		// 	if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {

@@ -62,8 +62,8 @@ h2 {
 	background-repeat: no-repeat;
 }
 .game-square {
-	outline:1px solid blue;
-	height: 32px;
+/*	outline:1px solid blue;
+*/	height: 32px;
 	width: 32px;
 	display: inline-block;
 }
