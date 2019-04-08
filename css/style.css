@@ -62,8 +62,8 @@ h2 {
 	background-repeat: no-repeat;
 }
 .game-square {
-/*	outline:1px solid blue;
-*/	height: 32px;
+	outline:1px solid blue;
+	height: 32px;
 	width: 32px;
 	display: inline-block;
 }
@@ -71,7 +71,7 @@ h2 {
 /*	background-color: orange;
 */	content:url("https://i.imgur.com/IZallmN.gif");
 	position: relative;
-	min-height: 32px;
+	height: 30px;
 	width: 30px;
 }
 /*https://ya-webdesign.com/images/link-nes-png-6.png   	Link facing down

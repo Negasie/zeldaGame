@@ -70,12 +70,24 @@ const hero = {
 	render() {
 		$('.hero').removeClass('hero');
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('hero');
-		// if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door0')) {
-		// 	$('.gameboard').css('background-image','url(https://i.imgur.com/GUtC5FT.png)');
-		// 	$('.hero').removeClass('hero');
-		// 	$(`.game-square[x=14][y=6]`).addClass('hero');
+		if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door0')) {
+			$('.gameboard').css('background-image','url(https://i.imgur.com/GUtC5FT.png)');
+			$('.hero').removeClass('hero');
+			$(`.game-square[x=14][y=6]`).addClass('hero');
+			console.log(hero.x, hero.y);
+			// hero = hero[x=14][y=6];
+//			Game thinks Link is currently at x=1, y=6.  
 
-		// };
+
+
+
+
+
+
+
+
+
+		};
 		if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat')) {
 			link.health--;
 			let hurt = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav"); 
@@ -272,9 +284,16 @@ $(document).keydown(function(e) {
 //   audio.volume = 0.2;
 
 
+/*
 
+1.	Put each room(enemies, doors, etc) into an object.
+2.	Create function to render each room. And clear when moving on.
+3.	Plan a room/doorway structure system.
+4.	Connect doorways from object to object.  Tie in coordinates,
+not just to image.
+5.	Style more and have fun.
 
-
+*/
 
 
 
