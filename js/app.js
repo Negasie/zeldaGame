@@ -42,16 +42,42 @@ const bat = {
 	y: 8,
 	render() {
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
-		if( $('.game-square').hasClass('door0 hero')) {
-		};
-	}
-}
+	},
+	roam() {
+		let	dir = Math.floor(Math.random() * 5);
+		if(dir === 1){
+			bat.x++;
+		}
+		else if(dir === 2){
+			bat.x--;
+		}
+		else if(dir === 3){
+			bat.y--;
+		}
+		else if(dir === 4){
+			bat.y++;
+		}
+
+		},	
+};
+	// function movement() {
+	// 	setTimeout(function (){
+	// 		bat.roam();
+	// 		bat.render();
+	// 	}, 1000, this.movement);
+	// };	
+// 			setTimeout(function (){
+// 			bat.roam();
+// 			bat.render();
+// 		}, 1000, this.roam);
+	
+// bat.roam();
+//movement();
 const bat2 = {
 	x: 10,
 	y: 8,
 	render() {
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
-
 	},
 };
 bat.render();
@@ -401,19 +427,19 @@ const hero = {
 			let bombDrop = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Bomb_Drop.wav");
 			bombDrop.play();
 			setTimeout(function (){
-				$('.bomb').attr({style: "content:url(BOMB EXPLOSION GIF)" }).fadeIn().delay(2000).fadeOut();			
+//				$('.bomb').attr({style: "content:url(https://i.imgur.com/nJRbPXG.gif)" }).fadeIn().delay(1500).fadeOut();			
+				$('.bomb').addClass("explosion").fadeIn().delay(1500).fadeOut();			
 				let explosion = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Bomb_Blow.wav");
 				explosion.play();
 				$('.bomb').removeClass('bomb');
 
 
-//  BOMB DISAPPEARS AS SOON AS LINK MOVES.  FIX IT LATER.
-
-
-
-
-
 			}, 1500);
+			setTimeout(function (){
+				$('.explosion').removeClass('explosion');
+
+			},	3000);	
+
 		if (lastDir === 37) {
    	  		$(`.game-square[x=${this.x-1}][y=${this.y}]`).addClass('bomb');
 
@@ -425,13 +451,12 @@ const hero = {
 		else if(lastDir === 38) {
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).addClass('bomb');
 
+
 		}
 		else if(lastDir === 40) {
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).addClass('bomb');
+
 		
-		}
-		if( $('.game-square').hasClass('bomb')){
-			$('.bomb').attr({style: "content:url(https://i.imgur.com/1QHgKI3.png" }).fadeIn().delay(2000).fadeOut();
 		}
 	},	
 };
