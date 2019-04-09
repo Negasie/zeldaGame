@@ -102,6 +102,9 @@ https://i.imgur.com/04n4zf7.png 						Room 1
 https://i.imgur.com/p3d1a5p.png 						Room 2
 https://i.imgur.com/QGL6B6I.png 						Room 3
 https://i.imgur.com/mhi8RzB.png 						Room 4
+https://i.imgur.com/ESjoNL4.png 						Room 5
+https://i.imgur.com/OS7TnNb.png 						Room 5 amended (door open after enemies cleared)
+
 
 https://66.media.tumblr.com/24fd4082b31df8b1ded26c2ae6417019/tumblr_mgdycq3WwS1r3smugo1_500.gif
 ^^  Link death, fairy gif
@@ -141,6 +144,9 @@ http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav 		Link hurt
 	content:url("https://i.imgur.com/nJRbPXG.gif");
 	height: 40px;
 	width: 40px;
+}
+.death {
+	content:url("https://i.imgur.com/iB0S4XG.gif");
 }
 .up {
 

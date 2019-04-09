@@ -36,7 +36,7 @@ class characters {
 	}
 }
 
-const link = new characters(3, 3, []);
+const link = new characters(3, 3, ["hello"]);
 const bat = {
 	x: 5,
 	y: 8,
@@ -278,6 +278,37 @@ const hero = {
 
 			};
 		};
+		if( $('.gameboard').hasClass('room4')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door0')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/ESjoNL4.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=13][y=6]`).addClass('hero');
+					hero.x = 13;
+					hero.y =6;			//	Room4 to Room5 doorway
+				$('.gameboard').removeClass('room4');
+				$('.gameboard').addClass('room5');
+				$('.game-square').removeClass('door0');
+				$('.game-square').removeClass('door3');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${3}][y=${5}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${3}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
+				$(`.game-square[x=${8}][y=${4}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+			};
+		};	
+		if( $('.gameboard').hasClass('room5')) {
+			if( !$('.game-square').hasClass('bat') && !$('.gameboard').hasClass('solved')){
+				$('.gameboard').css('background-image','url(https://i.imgur.com/OS7TnNb.png)');
+				let secret = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Secret.wav");
+				secret.play();
+				$('.gameboard').addClass('solved');
+
+
+//		$('.bat').css('visibility', 'hidden');
+			};		
+		};
+
 		// if($('.gameboard').hasClass('room0')){
 		// 	if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
 		// //		$('.gameboard').css('background-image','url(https://i.imgur.com/04n4zf7.png)');
@@ -308,6 +339,8 @@ const hero = {
 
 		};
 		if(link.health === 0){
+			$('.hero').addClass('death');
+			$('.hero').removeClass('hero');
       		// $(".hero").attr({style: "content:url(https://i.imgur.com/iB0S4XG.gif)" });			
 //						^^^ Death spin GIF wont work
 
@@ -329,6 +362,9 @@ const hero = {
 				let fairy = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Get_Fairy.wav");
 				fairy.play();
 				link.health = link.health + 3;
+				$('.death').addClass('hero');
+				$('.hero').removeClass('death');
+
 			}, 2500);
 			setTimeout(function (){
 				let itemSound = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Item.wav");
@@ -438,7 +474,21 @@ const hero = {
 			setTimeout(function (){
 				$('.explosion').removeClass('explosion');
 
-			},	3000);	
+
+
+			},	3000);
+				if( $(`.game-square[x=${this.x-1}][y=${this.y}]`).hasClass('bat') ||  $(`.game-square[x=${this.x+1}][y=${this.y}]`).hasClass('bat') || $(`.game-square[x=${this.x}][y=${this.y+1}]`).hasClass('bat') || $(`.game-square[x=${this.x}][y=${this.y-1}]`).hasClass('bat')) {
+		   	  		$('game-square').removeClass('bat');
+				};		// CANT GET BOMBS TO KILL BATS FIXITLATER
+
+
+
+
+
+
+
+
+
 
 		if (lastDir === 37) {
    	  		$(`.game-square[x=${this.x-1}][y=${this.y}]`).addClass('bomb');
