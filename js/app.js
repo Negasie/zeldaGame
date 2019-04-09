@@ -231,7 +231,7 @@ const hero = {
 		};
 		if( $('.gameboard').hasClass('room3')){
 			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
-				$('.gameboard').css('background-image','url(https://i.imgur.com/mhi8RzB.png)');
+				$('.gameboard').css('background-image','url(https://i.imgur.com/MSQ63XY.png)');
 				$('.hero').removeClass('hero');
 				$(`.game-square[x=7][y=3]`).addClass('hero');
 					hero.x = 7;
@@ -286,6 +286,8 @@ const hero = {
 					hero.x = 13;
 					hero.y =6;			//	Room4 to Room5 doorway
 				$('.gameboard').removeClass('room4');
+				$('.gameboard').removeClass('solved');
+				$('.gameboard').removeClass('blownUp');				
 				$('.gameboard').addClass('room5');
 				$('.game-square').removeClass('door0');
 				$('.game-square').removeClass('door3');
@@ -307,12 +309,13 @@ const hero = {
 		};
 		if( $('.gameboard').hasClass('room5') && $('.gameboard').hasClass('solved')){
 			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
-				$('.gameboard').css('background-image','url(https://i.imgur.com/mhi8RzB.png)');
+				$('.gameboard').css('background-image','url(https://i.imgur.com/MSQ63XY.png)');
 				$('.hero').removeClass('hero');
 				$(`.game-square[x=1][y=6]`).addClass('hero');
 					hero.x = 1;
 					hero.y =6;			// Room5 to Room4 doorway
-				$('.gameboard').removeClass('room0');
+				$('.gameboard').removeClass('room5');
+				$('.gameboard').removeClass('solved');
 				$('.gameboard').addClass('room4');
  				$('.game-square[x=1][y=6]').addClass('door0');
 			 	$('.game-square[x=7][y=2]').addClass('door3');
@@ -328,16 +331,196 @@ const hero = {
 				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
 				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
 				$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
-
 			};
 		};
-		if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat')) {
-			link.health--;
-			let hurt = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav"); 
-			hurt.play();
+			// if( $('.gameboard').hasClass('room4')) {
+			// 	if( $('.game-square').hasClass('door2') && $('.game-square').hasClass('bomb')){
+			// 		$('.gameboard').addClass('blownUp');
+			// 	};
+			// };
+			// if( $('.gameboard').hasClass('room4') && $('.gameboard').hasClass('blownUp')){
+			// 	setTimeout(function (){
+			// 		$('.gameboard').css('background-image','url(https://i.imgur.com/5XLkSm3.png)');
+			// 		let secret = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Secret.wav");
+			// 		secret.play();
+			// 	}, 3000);
+			// };			
+			//			FIXITLATER
 
+
+
+
+
+
+		if($('.gameboard').hasClass('room4')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/p3d1a5p.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=2][y=6]`).addClass('hero');
+					hero.x = 2;
+					hero.y =6;			//	Room4 to Room6 doorway
+				$('.gameboard').removeClass('room4');
+				$('.gameboard').addClass('room6');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${9}][y=${4}]`).addClass('bat');
+				$(`.game-square[x=${9}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${9}]`).addClass('bat');
+				$(`.game-square[x=${7}][y=${8}]`).addClass('bat');
+			};
+		};
+		if( $('.gameboard').hasClass('room6')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door0')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/MSQ63XY.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=13][y=6]`).addClass('hero');
+					hero.x = 13;
+					hero.y =6;			// Room6 to Room4 doorway
+				$('.gameboard').removeClass('room6');
+				$('.gameboard').addClass('room4');
+ 				$('.game-square[x=14][y=6]').addClass('door1');
+			 	$('.game-square[x=7][y=2]').addClass('door3');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${3}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${7}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${9}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${11}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${13}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
+			};
 
 		};
+		if( $('.gameboard').hasClass('room6')){
+				if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
+					$('.gameboard').css('background-image','url(https://i.imgur.com/m5spAiL.png)');
+					$('.hero').removeClass('hero');
+					$(`.game-square[x=7][y=3]`).addClass('hero');
+						hero.x = 7;
+						hero.y =3;			// Room6 to Room9 doorway
+					$('.gameboard').removeClass('room6');
+					$('.gameboard').addClass('room9');
+	 				$('.game-square[x=7][y=10]').addClass('door1');
+					$('.bat').removeClass('bat');
+					$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+					$(`.game-square[x=${3}][y=${4}]`).addClass('bat');	
+					$(`.game-square[x=${5}][y=${4}]`).addClass('bat');	
+					$(`.game-square[x=${10}][y=${9}]`).addClass('bat');	
+					$(`.game-square[x=${11}][y=${7}]`).addClass('bat');	
+		
+				};
+			};	
+		if( $('.gameboard').hasClass('room9')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door3')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/p3d1a5p.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=7][y=9]`).addClass('hero');
+					hero.x = 7;
+					hero.y =9;			// Room9 to Room6 doorway
+				$('.gameboard').removeClass('room9');
+				$('.gameboard').addClass('room6');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${9}][y=${4}]`).addClass('bat');
+				$(`.game-square[x=${9}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${9}]`).addClass('bat');
+				$(`.game-square[x=${7}][y=${8}]`).addClass('bat');
+			};
+
+		};
+		if($('.gameboard').hasClass('room9')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/KCC82ph.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=2][y=6]`).addClass('hero');
+					hero.x = 2;
+					hero.y =6;			//	Room9 to Room10 doorway
+				$('.gameboard').removeClass('room9');
+				$('.gameboard').addClass('room10');
+			 	$('.game-square[x=1][y=6]').addClass('door0');
+			 	$('.game-square[x=14][y=6]').addClass('door1');
+			 	$('.game-square[x=7][y=10]').addClass('door2');
+			 	$('.game-square[x=7][y=2]').addClass('door3');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${9}][y=${4}]`).addClass('bat');
+				$(`.game-square[x=${9}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${7}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${6}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${5}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
+			};
+		};
+		if( $('.gameboard').hasClass('room10')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door0')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/m5spAiL.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=13][y=6]`).addClass('hero');
+					hero.x = 13;
+					hero.y =6;			// Room10 to Room9 doorway
+				$('.gameboard').removeClass('room10');
+				$('.gameboard').addClass('room9');
+				$('.bat').removeClass('bat');
+					$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+					$(`.game-square[x=${3}][y=${4}]`).addClass('bat');	
+					$(`.game-square[x=${5}][y=${4}]`).addClass('bat');	
+					$(`.game-square[x=${10}][y=${9}]`).addClass('bat');	
+					$(`.game-square[x=${11}][y=${7}]`).addClass('bat');	
+			};
+
+		};
+		if( $('.gameboard').hasClass('room10')){
+			if(link.inventory.length > 0){
+				if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
+				let openDoor = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Door_Unlock.wav"); 
+				openDoor.play();
+					$('.gameboard').css('background-image','url(https://i.imgur.com/KCmNp8C.png)');
+					$('.hero').removeClass('hero');
+					$(`.game-square[x=7][y=3]`).addClass('hero');
+						hero.x = 7;
+						hero.y =3;			// Room10 to Room11 doorway
+					$('.gameboard').removeClass('room10');
+					$('.gameboard').addClass('room11');
+					$('.bat').removeClass('bat');		
+				};
+			};	
+		};
+		if( $('.gameboard').hasClass('room11')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door3')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/KCC82ph.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=7][y=9]`).addClass('hero');
+					hero.x = 7;
+					hero.y =9;			// Room11 to Room10 doorway
+				$('.gameboard').removeClass('room11');
+				$('.gameboard').addClass('room10');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${9}][y=${4}]`).addClass('bat');
+				$(`.game-square[x=${9}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${7}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${6}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${5}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
+
+			};
+
+		};
+
+
+
+			if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat')) {
+				link.health--;
+				let hurt = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav"); 
+				hurt.play();
+			};
+
 		if(link.health === 2){
 			$('#heart3').attr({style: "content:url(https://i.imgur.com/QDXta1k.png" })
 		};
