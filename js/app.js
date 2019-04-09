@@ -824,6 +824,7 @@ const hero = {
 		if (lastDir === 37) {
 			$('.hero').attr({style: "content:url(https://i.imgur.com/ypjv49F.png" })
       		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('bat');
+      		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('skelly');
       		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('minotaur');
    	  		$(`.game-square[x=${this.x-1}][y=${this.y}]`).attr({style: "content:url(https://i.imgur.com/xF5wkSs.png" });
 
@@ -831,6 +832,7 @@ const hero = {
 		else if(lastDir === 39) {
 			$('.hero').attr({style: "content:url(https://i.imgur.com/yWVt0cq.png" })
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('skelly');
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('minotaur');
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).attr({style: "content:url(https://i.imgur.com/LhHh7AK.png" });
 
@@ -838,6 +840,7 @@ const hero = {
 		else if(lastDir === 38) {
 			$('.hero').attr({style: "content:url(https://i.imgur.com/DPKnPxz.png" })
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('skelly');
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('minotaur');
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).attr({style: "content:url(https://i.imgur.com/2qVhI0i.png" });
 
@@ -845,6 +848,7 @@ const hero = {
 		else if(lastDir === 40) {
 			$('.hero').attr({style: "content:url(https://i.imgur.com/a4H8WVq.png" })
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('skelly');
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('minotaur');
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).attr({style: "content:url(https://i.imgur.com/lB21hzZ.png" });
 		
