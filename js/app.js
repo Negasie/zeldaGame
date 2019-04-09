@@ -303,27 +303,34 @@ const hero = {
 				let secret = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Secret.wav");
 				secret.play();
 				$('.gameboard').addClass('solved');
-
-
-//		$('.bat').css('visibility', 'hidden');
 			};		
 		};
+		if( $('.gameboard').hasClass('room5') && $('.gameboard').hasClass('solved')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/mhi8RzB.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=1][y=6]`).addClass('hero');
+					hero.x = 1;
+					hero.y =6;			// Room5 to Room4 doorway
+				$('.gameboard').removeClass('room0');
+				$('.gameboard').addClass('room4');
+ 				$('.game-square[x=1][y=6]').addClass('door0');
+			 	$('.game-square[x=7][y=2]').addClass('door3');
+				$('.bat').removeClass('bat');
+				$(`.game-square[x=${3}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${7}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${9}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${11}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${13}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
 
-		// if($('.gameboard').hasClass('room0')){
-		// 	if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
-		// //		$('.gameboard').css('background-image','url(https://i.imgur.com/04n4zf7.png)');
-		// 		$('.hero').removeClass('hero');
-		// 		hero.x = 1;
-		// 		hero.y = 6;
-		// 		$(`.game-square[x=1][y=6]`).addClass('hero');
-		// 		$('.gameboard').removeClass('room0');
-		// 		$('.gameboard').addClass('room1');
-		// 	// if( $('.gameboard').hasClass('room0')){
-		// 	// 	$('.gameboard').removeClass('door0');
-		// 	// }
-		// 	};
-		// };
-
+			};
+		};
 		if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat')) {
 			link.health--;
 			let hurt = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav"); 
