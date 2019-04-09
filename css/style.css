@@ -81,6 +81,8 @@ https://i.imgur.com/arBUiFo.png							Link facing up
 https://i.imgur.com/JEyPBc6.png 						Bat wings open
 https://i.imgur.com/sK6TOOj.png 						Bat wings closed
 https://i.imgur.com/I46bClF.gif 						Bat gif
+https://i.imgur.com/QN3IqmZ.gif 						Minotaur gif
+https://i.imgur.com/zjA2EMQ.gif 						Skelly gif 
 https://i.imgur.com/ypjv49F.png 						Link atk left
 https://i.imgur.com/xF5wkSs.png 						Link atk sword left
 https://i.imgur.com/yWVt0cq.png 						Link atk right
@@ -131,6 +133,19 @@ http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav 		Link hurt
 	content:url("https://i.imgur.com/I46bClF.gif");
 	position: relative;
 	height: 25px;
+	width: 30px;
+}
+.minotaur {
+	content: url("https://i.imgur.com/QN3IqmZ.gif");
+	position: relative;
+	height: 30px;
+	width: 30px;
+	margin-left: 5px;
+}
+.skelly {
+	content: url("https://i.imgur.com/zjA2EMQ.gif");
+	position: relative;
+	height: 30px;
 	width: 30px;
 }
 .key {

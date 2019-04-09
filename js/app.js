@@ -121,6 +121,9 @@ const hero = {
 				$(`.game-square[x=${3}][y=${3}]`).addClass('key');
 				$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
 				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${8}][y=${6}]`).addClass('minotaur');	
+				$(`.game-square[x=${7}][y=${6}]`).addClass('minotaur');	
+
 			};
 		};
 		if($('.gameboard').hasClass('room1')){
@@ -145,6 +148,7 @@ const hero = {
 					hero.x = 1;
 					hero.y =6;			// Room0 to Room1 doorway
 				$('.gameboard').removeClass('room0');
+				$('.minotaur').removeClass('minotaur');
 				$('.game-square').removeClass('key');
 				$('.game-square').removeClass('key0');
 				$('.gameboard').addClass('room1');
@@ -182,7 +186,7 @@ const hero = {
 
 		};
 		if( $('.gameboard').hasClass('room1')){
-			if(link.inventory.length > 1){
+			if(link.inventory.length > 0){
 				if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
 				let openDoor = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Door_Unlock.wav"); 
 				openDoor.play();
@@ -199,6 +203,8 @@ const hero = {
 					$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
 					$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
 					$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
+					$(`.game-square[x=${5}][y=${6}]`).addClass('skelly');	
+					$(`.game-square[x=${9}][y=${6}]`).addClass('skelly');	
 		
 				};
 			};	
@@ -211,6 +217,7 @@ const hero = {
 					hero.x = 7;
 					hero.y =9;			// Room3 to Room1 doorway
 				$('.gameboard').removeClass('room3');
+				$('.skelly').removeClass('skelly');
 				$('.gameboard').addClass('room1');
  				$('.game-square[x=14][y=6]').addClass('door1');
  				$('.game-square[x=7][y=10]').addClass('door2');
@@ -229,6 +236,7 @@ const hero = {
 					hero.x = 7;
 					hero.y =3;			// Room3 to Room4 doorway
 				$('.gameboard').removeClass('room3');
+				$('.skelly').removeClass('skelly');
 				$('.gameboard').addClass('room4');
  				$('.game-square[x=14][y=6]').addClass('door1');
  				$('.game-square[x=7][y=10]').addClass('door2');
@@ -264,6 +272,8 @@ const hero = {
 				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
 				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
 				$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${5}][y=${6}]`).addClass('skelly');	
+				$(`.game-square[x=${9}][y=${6}]`).addClass('skelly');	
 	
 
 			};
@@ -703,7 +713,7 @@ const hero = {
 		};
 
 
-			if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat')) {
+			if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat') || $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('minotaur')) {
 				link.health--;
 				let hurt = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav"); 
 				hurt.play();
@@ -814,24 +824,28 @@ const hero = {
 		if (lastDir === 37) {
 			$('.hero').attr({style: "content:url(https://i.imgur.com/ypjv49F.png" })
       		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('bat');
+      		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('minotaur');
    	  		$(`.game-square[x=${this.x-1}][y=${this.y}]`).attr({style: "content:url(https://i.imgur.com/xF5wkSs.png" });
 
 		}
 		else if(lastDir === 39) {
 			$('.hero').attr({style: "content:url(https://i.imgur.com/yWVt0cq.png" })
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('minotaur');
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).attr({style: "content:url(https://i.imgur.com/LhHh7AK.png" });
 
 		}
 		else if(lastDir === 38) {
 			$('.hero').attr({style: "content:url(https://i.imgur.com/DPKnPxz.png" })
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('minotaur');
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).attr({style: "content:url(https://i.imgur.com/2qVhI0i.png" });
 
 		}
 		else if(lastDir === 40) {
 			$('.hero').attr({style: "content:url(https://i.imgur.com/a4H8WVq.png" })
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('bat');
+   	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('minotaur');
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).attr({style: "content:url(https://i.imgur.com/lB21hzZ.png" });
 		
 		}
