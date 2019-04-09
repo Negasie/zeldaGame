@@ -8,13 +8,10 @@ for(let y = 11; y > -1; y--){
     for(let x = 0; x < 16; x++){
         $(`.row${y}`).append(`<div class="game-square" x="${x}" y="${y}"></div>`)
     };
- //	$('.game-square[x=7][y=9]').addClass('door door2');
- 	$('.game-square[x=7][y=10]').addClass('door door2');
-// 	$('.game-square[x=2][y=6]').addClass('door door0');
- 	$('.game-square[x=1][y=6]').addClass('door door0');
- //	$('.game-square[x=13][y=6]').addClass('door door1');
- 	$('.game-square[x=14][y=6]').addClass('door door1');
- 	$('.game-square[x=7][y=2]').addClass('door door3');
+ 	$('.game-square[x=1][y=6]').addClass('door0');
+ 	$('.game-square[x=14][y=6]').addClass('door1');
+ 	$('.game-square[x=7][y=10]').addClass('door2');
+ 	$('.game-square[x=7][y=2]').addClass('door3');
 
 };
 };
@@ -44,15 +41,8 @@ const bat = {
 	x: 5,
 	y: 8,
 	render() {
-		// $('.bat').addClass('enemy');
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
 		if( $('.game-square').hasClass('door0 hero')) {
-
-		// if($('.game-square').hasClass('hero door0'){
-		// $('.bat').removeClass('bat');
-		// $(`.game-square[x=${4}][y=${4}]`).addClass('bat');
-
-		// bat.render();
 		};
 	}
 }
@@ -61,10 +51,7 @@ const bat2 = {
 	y: 8,
 	render() {
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
-		// if('.game-square').hasClass('hero door0'){
-		// 	bat.x =7; 
-		// 	bat.y =9;
-		// }
+
 	},
 };
 bat.render();
@@ -74,12 +61,19 @@ const key = {
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('key');
 },
 };
+const bomb = {
+	render() {
+		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bomb');
+	
+	},
+};
 const left = 37;
 const right = 39;
 const up = 38;
 const down = 40;
 const spacebar = 32;
 let lastDir = 40;
+const B = 66;
 
 const hero = {
 	x: 7,
@@ -102,7 +96,6 @@ const hero = {
 				$('.bat').removeClass('bat');
 				$(`.game-square[x=${3}][y=${3}]`).addClass('key0');
 				$(`.game-square[x=${3}][y=${3}]`).addClass('key');
-				// $('.key').css('background-image','url(https://i.imgur.com/RTZekWR.png)');
 				$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
 				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
 			};
@@ -131,7 +124,7 @@ const hero = {
 				$(`.game-square[x=1][y=6]`).addClass('hero');
 					hero.x = 1;
 					hero.y =6;			// Room0 to Room1 doorway
-				$('.game-square').removeClass('room0');
+				$('.gameboard').removeClass('room0');
 				$('.game-square').removeClass('key');
 				$('.game-square').removeClass('key0');
 				$('.gameboard').addClass('room1');
@@ -171,6 +164,8 @@ const hero = {
 		if( $('.gameboard').hasClass('room1')){
 			if(link.inventory.length > 0){
 				if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
+				let openDoor = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Door_Unlock.wav"); 
+				openDoor.play();
 					$('.gameboard').css('background-image','url(https://i.imgur.com/QGL6B6I.png)');
 					$('.hero').removeClass('hero');
 					$(`.game-square[x=7][y=3]`).addClass('hero');
@@ -243,7 +238,7 @@ const hero = {
 				$(`.game-square[x=7][y=9]`).addClass('hero');
 					hero.x = 7;
 					hero.y =9;			// Room4 to Room3 doorway
-				$('.gameboard').removeClass('room1');
+				$('.gameboard').removeClass('room4');
 				$('.gameboard').addClass('room3');
  				$('.game-square[x=14][y=6]').removeClass('door0');
  				$('.game-square[x=7][y=10]').removeClass('door1');
@@ -287,21 +282,15 @@ const hero = {
 
 		};
 		if(link.health === 0){
+      		// $(".hero").attr({style: "content:url(https://i.imgur.com/iB0S4XG.gif)" });			
+//						^^^ Death spin GIF wont work
+
+
+
+
 			let dead = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Dying.wav");
 			dead.play();
 			$('#heart1').attr({style: "content:url(https://i.imgur.com/QDXta1k.png" });
-       		// $(".hero").attr({style: "content:url(https://i.imgur.com/abBuvjQ.png)" });			
-
-
-
-
-
-
-
-
-
-
-
 
 			setTimeout(function (){
 				$('#mainChar').attr({style: "content:url(https://66.media.tumblr.com/24fd4082b31df8b1ded26c2ae6417019/tumblr_mgdycq3WwS1r3smugo1_500.gif)" }).fadeIn().delay(2000).fadeOut();			
@@ -379,7 +368,6 @@ const hero = {
 				this.render();
 	},
 	attack() {
-		$(".hero").height(48);
 			let snd = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword1.wav");
 			snd.play();
 
@@ -396,14 +384,12 @@ const hero = {
 
 		}
 		else if(lastDir === 38) {
-			$(".hero").height(48);
 			$('.hero').attr({style: "content:url(https://i.imgur.com/DPKnPxz.png" })
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('bat');
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).attr({style: "content:url(https://i.imgur.com/2qVhI0i.png" });
 
 		}
 		else if(lastDir === 40) {
-			$(".hero").height(48);
 			$('.hero').attr({style: "content:url(https://i.imgur.com/a4H8WVq.png" })
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('bat');
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).attr({style: "content:url(https://i.imgur.com/lB21hzZ.png" });
@@ -411,7 +397,43 @@ const hero = {
 		}
 
 	},
+	bomb(){
+			let bombDrop = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Bomb_Drop.wav");
+			bombDrop.play();
+			setTimeout(function (){
+				$('.bomb').attr({style: "content:url(BOMB EXPLOSION GIF)" }).fadeIn().delay(2000).fadeOut();			
+				let explosion = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Bomb_Blow.wav");
+				explosion.play();
+				$('.bomb').removeClass('bomb');
 
+
+//  BOMB DISAPPEARS AS SOON AS LINK MOVES.  FIX IT LATER.
+
+
+
+
+
+			}, 1500);
+		if (lastDir === 37) {
+   	  		$(`.game-square[x=${this.x-1}][y=${this.y}]`).addClass('bomb');
+
+		}
+		else if(lastDir === 39) {
+   	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).addClass('bomb');
+
+		}
+		else if(lastDir === 38) {
+   	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).addClass('bomb');
+
+		}
+		else if(lastDir === 40) {
+   	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).addClass('bomb');
+		
+		}
+		if( $('.game-square').hasClass('bomb')){
+			$('.bomb').attr({style: "content:url(https://i.imgur.com/1QHgKI3.png" }).fadeIn().delay(2000).fadeOut();
+		}
+	},	
 };
 
 hero.render();
@@ -448,14 +470,12 @@ $(document).keydown(function(e) {
             lastDir = 40;
         break;
     case 32:
-    if(lastDir === 38 || lastDir === 40){
-    	$(".hero").height(48);
-    	hero.attack();
-    }	else {
-    	$(".hero").width(42);
-    	hero.attack();
+		hero.attack();
+    	break;
 
-    }
+    case 66:
+    	hero.bomb();
+    	break;
     }
 });
  

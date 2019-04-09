@@ -94,6 +94,7 @@ https://i.imgur.com/shGzmqx.png 						Heart half full
 https://i.imgur.com/avbzJkV.png 						Heart empty
 https://i.imgur.com/a5b5ZEn.png 						Sword Image
 https://i.imgur.com/RZm4XEu.png 						Key image
+https://i.imgur.com/1QHgKI3.png 						Bomb image
 
 https://i.imgur.com/GUtC5FT.png 						Room 0
 https://i.imgur.com/04n4zf7.png 						Room 1
@@ -128,6 +129,11 @@ http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav 		Link hurt
 	background-repeat: no-repeat;
 	margin-left: 10px;
 	margin-top: 7px;
+}
+.bomb {
+	height: 25px;
+	width: 25px;
+	margin-left: 2px;
 }
 .up {
 
