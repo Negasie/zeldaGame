@@ -20,9 +20,10 @@ for(let y = 11; y > -1; y--){
 };
 gameboard();
 class characters {
-	constructor(health, attack){
+	constructor(health, attack, inventory){
 		this.health = health;
 		this.attack = attack;
+		this.inventory = inventory;
 	}
 	health() {
 		if(this.health > 0){
@@ -33,15 +34,17 @@ class characters {
 		if(this.attack > 0){
 		}
 	}
+	inventory() {
+
+	}
 }
 
-const link = new characters(3, 3);
+const link = new characters(3, 3, []);
 const bat = {
 	x: 5,
 	y: 8,
 	render() {
 		// $('.bat').addClass('enemy');
-		$('.bat').removeClass('bat');
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
 		if( $('.game-square').hasClass('door0 hero')) {
 
@@ -57,17 +60,20 @@ const bat2 = {
 	x: 10,
 	y: 8,
 	render() {
-		$('.bat2').removeClass('bat2');
 		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('bat');
 		// if('.game-square').hasClass('hero door0'){
 		// 	bat.x =7; 
 		// 	bat.y =9;
 		// }
-	}
-}
+	},
+};
 bat.render();
 bat2.render();
-
+const key = {
+	render() {
+		$(`.game-square[x=${this.x}][y=${this.y}]`).addClass('key');
+},
+};
 const left = 37;
 const right = 39;
 const up = 38;
@@ -94,6 +100,9 @@ const hero = {
 				$('.game-square').removeClass('door2');
 				$('.game-square').removeClass('door3');
 				$('.bat').removeClass('bat');
+				$(`.game-square[x=${3}][y=${3}]`).addClass('key0');
+				$(`.game-square[x=${3}][y=${3}]`).addClass('key');
+				// $('.key').css('background-image','url(https://i.imgur.com/RTZekWR.png)');
 				$(`.game-square[x=${4}][y=${4}]`).addClass('bat');
 				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
 			};
@@ -122,7 +131,9 @@ const hero = {
 				$(`.game-square[x=1][y=6]`).addClass('hero');
 					hero.x = 1;
 					hero.y =6;			// Room0 to Room1 doorway
-				$('.gameboard').removeClass('room0');
+				$('.game-square').removeClass('room0');
+				$('.game-square').removeClass('key');
+				$('.game-square').removeClass('key0');
 				$('.gameboard').addClass('room1');
  				$('.game-square[x=1][y=6]').addClass('door0');
  				$('.game-square[x=7][y=10]').addClass('door2');
@@ -131,7 +142,13 @@ const hero = {
 				$(`.game-square[x=${5}][y=${8}]`).addClass('bat');
 				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
 			};
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('key0')) {
+					link.inventory.push('key0');
+				$('.key0').removeClass('key0 key');
+				let keyPickUp = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Get_Key.wav"); 
+				keyPickUp.play();
 
+					};
 		};
 		if( $('.gameboard').hasClass('room2')){
 			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door0')) {
@@ -152,25 +169,26 @@ const hero = {
 
 		};
 		if( $('.gameboard').hasClass('room1')){
-			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
-				$('.gameboard').css('background-image','url(https://i.imgur.com/QGL6B6I.png)');
-				$('.hero').removeClass('hero');
-				$(`.game-square[x=7][y=3]`).addClass('hero');
-					hero.x = 7;
-					hero.y =3;			// Room1 to Room3 doorway
-				$('.gameboard').removeClass('room1');
-				$('.gameboard').addClass('room3');
- 				$('.game-square[x=14][y=6]').removeClass('door0');
- 				$('.game-square[x=7][y=10]').removeClass('door1');
-				$('.bat').removeClass('bat');
-				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
-				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');	
-				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
-				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
-				$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
-	
-
-			};
+			if(link.inventory.length > 0){
+				if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
+					$('.gameboard').css('background-image','url(https://i.imgur.com/QGL6B6I.png)');
+					$('.hero').removeClass('hero');
+					$(`.game-square[x=7][y=3]`).addClass('hero');
+						hero.x = 7;
+						hero.y =3;			// Room1 to Room3 doorway
+					$('.gameboard').removeClass('room1');
+					$('.gameboard').addClass('room3');
+	 				$('.game-square[x=14][y=6]').removeClass('door0');
+	 				$('.game-square[x=7][y=10]').removeClass('door1');
+					$('.bat').removeClass('bat');
+					$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+					$(`.game-square[x=${6}][y=${8}]`).addClass('bat');	
+					$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
+					$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
+					$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
+		
+				};
+			};	
 		};
 		if( $('.gameboard').hasClass('room3')){
 			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door3')) {
@@ -209,6 +227,27 @@ const hero = {
 				$(`.game-square[x=${9}][y=${7}]`).addClass('bat');
 				$(`.game-square[x=${11}][y=${7}]`).addClass('bat');
 				$(`.game-square[x=${13}][y=${7}]`).addClass('bat');
+				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
+				$(`.game-square[x=${12}][y=${8}]`).addClass('bat');	
+	
+
+			};
+		};
+		if( $('.gameboard').hasClass('room4')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door3')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/04n4zf7.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=7][y=9]`).addClass('hero');
+					hero.x = 7;
+					hero.y =9;			// Room4 to Room3 doorway
+				$('.gameboard').removeClass('room1');
+				$('.gameboard').addClass('room3');
+ 				$('.game-square[x=14][y=6]').removeClass('door0');
+ 				$('.game-square[x=7][y=10]').removeClass('door1');
+				$('.bat').removeClass('bat');
 				$(`.game-square[x=${4}][y=${8}]`).addClass('bat');
 				$(`.game-square[x=${6}][y=${8}]`).addClass('bat');	
 				$(`.game-square[x=${8}][y=${8}]`).addClass('bat');	
