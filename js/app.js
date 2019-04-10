@@ -186,7 +186,7 @@ const hero = {
 
 		};
 		if( $('.gameboard').hasClass('room1')){
-			if(link.inventory.length > 0){
+			if(link.inventory.length > 1){
 				if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door2')) {
 				let openDoor = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Door_Unlock.wav"); 
 				openDoor.play();
