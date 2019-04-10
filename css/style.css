@@ -86,6 +86,12 @@ https://i.imgur.com/zSpuktH.gif 						Blue Minotaur gif
 https://i.imgur.com/zjA2EMQ.gif 						Skelly gif 
 https://i.imgur.com/yHAvGRG.gif 						Red Guy gif
 https://i.imgur.com/pMDpJTC.gif 						Boss Dragon gif
+
+https://i.imgur.com/JfLqYVe.png 						Lower right dragon
+https://i.imgur.com/zbAJUoI.png 						Lower left dragon
+https://i.imgur.com/Z5oKS07.png 						Upper right dragon
+https://i.imgur.com/lI6lvNo.gif 						Upper left GIF
+
 https://i.imgur.com/ypjv49F.png 						Link atk left
 https://i.imgur.com/xF5wkSs.png 						Link atk sword left
 https://i.imgur.com/yWVt0cq.png 						Link atk right
@@ -170,12 +176,37 @@ http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav 		Link hurt
 	height: 30px;
 	width: 30px;
 }
-.dragon {
+/*.dragon {
 	content: url("https://i.imgur.com/pMDpJTC.gif");
 	position: center;
 	height: 60px;
 	width: 60px;
+}*/
+.dragonUpperLeft {
+	content: url("https://i.imgur.com/lI6lvNo.gif");
+	position: stretch;
+	height: 30px;
+	width: 30px;
 }
+.dragonUpperRight {
+	content: url("https://i.imgur.com/Z5oKS07.png");
+	position: stretch;
+	height: 30px;
+	width: 30px;
+}
+.dragonLowerLeft {
+	content: url("https://i.imgur.com/zbAJUoI.png");
+	position: stretch;
+	height: 30px;
+	width: 30px;
+}
+.dragonLowerRight {
+	content: url("https://i.imgur.com/JfLqYVe.png");
+	position: stretch;
+	height: 30px;
+	width: 30px;
+}
+
 .key {
 	content:url("https://i.imgur.com/OkqdYtx.png");
 	position: center;
