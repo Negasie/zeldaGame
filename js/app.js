@@ -138,6 +138,10 @@ const hero = {
 			$('.bat').removeClass('bat');
 				$(`.game-square[x=${9}][y=${4}]`).addClass('bat');
 				$(`.game-square[x=${9}][y=${8}]`).addClass('bat');
+				$(`.game-square[x=${5}][y=${6}]`).addClass('redGuy');	
+				$(`.game-square[x=${6}][y=${7}]`).addClass('redGuy');	
+				$(`.game-square[x=${6}][y=${5}]`).addClass('redGuy');	
+
 			};
 		};
 		if( $('.gameboard').hasClass('room0')){
@@ -148,7 +152,6 @@ const hero = {
 					hero.x = 1;
 					hero.y =6;			// Room0 to Room1 doorway
 				$('.gameboard').removeClass('room0');
-				$('.minotaur').removeClass('minotaur');
 				$('.game-square').removeClass('key');
 				$('.game-square').removeClass('key0');
 				$('.gameboard').addClass('room1');
@@ -156,6 +159,7 @@ const hero = {
  				$('.game-square[x=7][y=10]').addClass('door2');
 			 	$('.game-square[x=7][y=2]').addClass('door3');
 				$('.bat').removeClass('bat');
+				$('.minotaur').removeClass('minotaur');
 				$(`.game-square[x=${5}][y=${8}]`).addClass('bat');
 				$(`.game-square[x=${10}][y=${8}]`).addClass('bat');	
 			};
@@ -175,6 +179,7 @@ const hero = {
 					hero.x = 13;
 					hero.y =6;			// Room2 to Room1 doorway
 				$('.gameboard').removeClass('room2');
+				$('.redGuy').removeClass('redGuy');
 				$('.gameboard').addClass('room1');
  				$('.game-square[x=14][y=6]').addClass('door1');
  				$('.game-square[x=7][y=10]').addClass('door2');
@@ -711,7 +716,29 @@ const hero = {
 
 					};			
 		};
+		if($('.gameboard').hasClass('room11')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door1')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/p3d1a5p.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=2][y=6]`).addClass('hero');
+					hero.x = 2;
+					hero.y =6;			//	Room11 to Room12 doorway
+				$('.gameboard').removeClass('room1');
+				$('.gameboard').addClass('room12');
+			};
+		};
+		if( $('.gameboard').hasClass('room12')){
+			if( $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('door0')) {
+				$('.gameboard').css('background-image','url(https://i.imgur.com/KCmNp8C.png)');
+				$('.hero').removeClass('hero');
+				$(`.game-square[x=13][y=6]`).addClass('hero');
+					hero.x = 13;
+					hero.y =6;			// Room12 to Room11 doorway
+				$('.gameboard').removeClass('room12');
+				$('.gameboard').addClass('room11');
+			};
 
+		};
 
 			if(	$(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('bat') || $(`.game-square[x=${this.x}][y=${this.y}]`).hasClass('minotaur')) {
 				link.health--;
@@ -826,6 +853,7 @@ const hero = {
       		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('bat');
       		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('skelly');
       		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('minotaur');
+      		$(`.game-square[x=${this.x-1}][y=${this.y}]`).removeClass('redGuy');
    	  		$(`.game-square[x=${this.x-1}][y=${this.y}]`).attr({style: "content:url(https://i.imgur.com/xF5wkSs.png" });
 
 		}
@@ -834,6 +862,7 @@ const hero = {
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('bat');
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('skelly');
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('minotaur');
+   	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).removeClass('redGuy');
    	  		$(`.game-square[x=${this.x+1}][y=${this.y}]`).attr({style: "content:url(https://i.imgur.com/LhHh7AK.png" });
 
 		}
@@ -842,6 +871,7 @@ const hero = {
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('bat');
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('skelly');
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('minotaur');
+   	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).removeClass('redGuy');
    	  		$(`.game-square[x=${this.x}][y=${this.y+1}]`).attr({style: "content:url(https://i.imgur.com/2qVhI0i.png" });
 
 		}
@@ -850,6 +880,7 @@ const hero = {
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('bat');
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('skelly');
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('minotaur');
+   	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).removeClass('redGuy');
    	  		$(`.game-square[x=${this.x}][y=${this.y-1}]`).attr({style: "content:url(https://i.imgur.com/lB21hzZ.png" });
 		
 		}

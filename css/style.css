@@ -82,7 +82,9 @@ https://i.imgur.com/JEyPBc6.png 						Bat wings open
 https://i.imgur.com/sK6TOOj.png 						Bat wings closed
 https://i.imgur.com/I46bClF.gif 						Bat gif
 https://i.imgur.com/QN3IqmZ.gif 						Minotaur gif
+https://i.imgur.com/zSpuktH.gif 						Blue Minotaur gif
 https://i.imgur.com/zjA2EMQ.gif 						Skelly gif 
+https://i.imgur.com/yHAvGRG.gif 						Red Guy gif
 https://i.imgur.com/ypjv49F.png 						Link atk left
 https://i.imgur.com/xF5wkSs.png 						Link atk sword left
 https://i.imgur.com/yWVt0cq.png 						Link atk right
@@ -114,6 +116,7 @@ https://i.imgur.com/EHLAFiP.png 						Room 8
 https://i.imgur.com/m5spAiL.png 						Room 9
 https://i.imgur.com/KCC82ph.png 						Room 10
 https://i.imgur.com/KCmNp8C.png 						Room 11
+USE ROOM TWO 											Room 12
 https://i.imgur.com/S2QKpjX.png 						Black room w/ guy in it giving advice (Room 6.5?)
 
 https://66.media.tumblr.com/24fd4082b31df8b1ded26c2ae6417019/tumblr_mgdycq3WwS1r3smugo1_500.gif
@@ -141,6 +144,19 @@ http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav 		Link hurt
 	height: 30px;
 	width: 30px;
 	margin-left: 5px;
+}
+.minotaurBlue {
+	content: url("https://i.imgur.com/zSpuktH.gif");
+	position: relative;
+	height: 30px;
+	width: 30px;
+	margin-left: 5px;
+}
+.redGuy {
+	content: url(https://i.imgur.com/yHAvGRG.gif);
+	position: relative;
+	height: 30px;
+	width: 30px;
 }
 .skelly {
 	content: url("https://i.imgur.com/zjA2EMQ.gif");
