@@ -85,6 +85,7 @@ https://i.imgur.com/QN3IqmZ.gif 						Minotaur gif
 https://i.imgur.com/zSpuktH.gif 						Blue Minotaur gif
 https://i.imgur.com/zjA2EMQ.gif 						Skelly gif 
 https://i.imgur.com/yHAvGRG.gif 						Red Guy gif
+https://i.imgur.com/pMDpJTC.gif 						Boss Dragon gif
 https://i.imgur.com/ypjv49F.png 						Link atk left
 https://i.imgur.com/xF5wkSs.png 						Link atk sword left
 https://i.imgur.com/yWVt0cq.png 						Link atk right
@@ -97,6 +98,7 @@ https://i.imgur.com/rCtMDmM.png 						Heart full
 https://i.imgur.com/shGzmqx.png 						Heart half full
 https://i.imgur.com/avbzJkV.png 						Heart empty
 https://i.imgur.com/a5b5ZEn.png 						Sword Image
+https://i.imgur.com/8g9utps.png 						Bomb image (for weapons display at the top)
 https://i.imgur.com/OkqdYtx.png 						Key image
 https://i.imgur.com/1QHgKI3.png 						Bomb image
 https://i.imgur.com/nJRbPXG.gif 						Bomb GIF
@@ -116,8 +118,12 @@ https://i.imgur.com/EHLAFiP.png 						Room 8
 https://i.imgur.com/m5spAiL.png 						Room 9
 https://i.imgur.com/KCC82ph.png 						Room 10
 https://i.imgur.com/KCmNp8C.png 						Room 11
+https://i.imgur.com/m80MnnX.png 						Room 11 amended
 USE ROOM TWO 											Room 12
 https://i.imgur.com/S2QKpjX.png 						Black room w/ guy in it giving advice (Room 6.5?)
+https://i.imgur.com/PTO5FQF.png 						TRIFORCE
+https://i.imgur.com/6vNFsL3.png 						Link holding Triforce
+
 
 https://66.media.tumblr.com/24fd4082b31df8b1ded26c2ae6417019/tumblr_mgdycq3WwS1r3smugo1_500.gif
 ^^  Link death, fairy gif
@@ -164,6 +170,12 @@ http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav 		Link hurt
 	height: 30px;
 	width: 30px;
 }
+.dragon {
+	content: url("https://i.imgur.com/pMDpJTC.gif");
+	position: center;
+	height: 60px;
+	width: 60px;
+}
 .key {
 	content:url("https://i.imgur.com/OkqdYtx.png");
 	position: center;
@@ -172,6 +184,18 @@ http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav 		Link hurt
 	background-repeat: no-repeat;
 	margin-left: 10px;
 	margin-top: 7px;
+}
+.triforce {
+	content: url("https://i.imgur.com/PTO5FQF.png");
+	width: 30px;
+	height: 30px;
+	position: relative;
+}
+.linkTriforce {
+	content: url("https://i.imgur.com/6vNFsL3.png");
+	width: 100px;
+	height: 120px;
+	position: relative;
 }
 .bomb {
 	content:url("https://i.imgur.com/1QHgKI3.png");
